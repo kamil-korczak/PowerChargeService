@@ -1,0 +1,7 @@
+/node_modules
+/sql
+Dockerfile
+docker-compose.yaml
+.gitignore
+.env
+.env-default

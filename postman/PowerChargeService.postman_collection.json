@@ -1,0 +1,514 @@
+{
+	"info": {
+		"_postman_id": "787aa5c1-98c8-4224-b7b3-fe585141aecb",
+		"name": "PowerChargeService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "charging stations",
+					"item": [
+						{
+							"name": "charging_stations",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImN6YWtpeEBnbWFpbC5jb20iLCJpYXQiOjE3MDIzNzQ2NjEsImV4cCI6MTcwMjM3NDc4MX0.bhz-cn_PaVyg3rcijBM_uSxSTliwN0QrheEWTQL_UbA",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/charging_stations",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"charging_stations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "charging_station",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/charging_stations/8e3ebd45-5de0-4858-a529-778c0b6d6c1c/",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"charging_stations",
+										"8e3ebd45-5de0-4858-a529-778c0b6d6c1c",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "charging_station",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/charging_stations/8e3ebd45-5de0-4858-a529-778c0b6d6c1c/",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"charging_stations",
+										"8e3ebd45-5de0-4858-a529-778c0b6d6c1c",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "charging_stations",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Charging Station 17\",\n    \"device_id\": \"9a34e997-752c-41da-b9fd-d9a2b8d71819\",\n    \"ip_address\": \"0.0.0.0\",\n    \"charging_station_type_id\": \"8aef036b-8f6c-4e62-ae8b-648ea77dbcf8\",\n    \"firmware_version\": \"v1\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/charging_stations",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"charging_stations"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "charging_station",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/charging_stations/72ec937e-fb3c-46cf-bb5c-b3e560602795/",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"charging_stations",
+										"72ec937e-fb3c-46cf-bb5c-b3e560602795",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "charging stations type",
+					"item": [
+						{
+							"name": "charging_station_types",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/charging_station_types",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"charging_station_types"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "charging_station_type",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/charging_station_types/883d88a2-39ad-4c67-a640-cfc18f8aaf92/",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"charging_station_types",
+										"883d88a2-39ad-4c67-a640-cfc18f8aaf92",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "charging_station_type",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/charging_station_types/2036e373-d9fb-41d6-973f-bf12254d58fd/",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"charging_station_types",
+										"2036e373-d9fb-41d6-973f-bf12254d58fd",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "charging_station_type",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Tesla x10\",\n    \"plug_count\": 3,\n    \"efficiency\": 30.0,\n    \"current_type\": \"DC\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/charging_station_types",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"charging_station_types"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "charging_station_type",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"Tesla Supercharger (Level 3)\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/charging_station_types/883d88a2-39ad-4c67-a640-cfc18f8aaf92/",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"charging_station_types",
+										"883d88a2-39ad-4c67-a640-cfc18f8aaf92",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "connector",
+					"item": [
+						{
+							"name": "connectors",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/connectors",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"connectors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "connector",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/connectors/3507b126-3e47-4e48-8418-36d1d02de562/",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"connectors",
+										"3507b126-3e47-4e48-8418-36d1d02de562",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "connector",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{HOST}}/api/connectors/7b09be85-ecca-49fe-b39d-d49050eafa74/",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"connectors",
+										"7b09be85-ecca-49fe-b39d-d49050eafa74",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "connector",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"test 2\",\n    \"charging_station_id\": \"e3ebd45-5de0-4858-a529-778c0b6d6c1c\",\n    \"priority\": false\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/connectors",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"connectors"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "connector",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{HOST}}/api/connectors/2f099da6-de75-40da-b079-5b87b2223530",
+									"host": [
+										"{{HOST}}"
+									],
+									"path": [
+										"api",
+										"connectors",
+										"2f099da6-de75-40da-b079-5b87b2223530"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			],
+			"auth": {
+				"type": "bearer",
+				"bearer": [
+					{
+						"key": "token",
+						"value": "{{ACCESS_TOKEN}}",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"const reqObject = {",
+							"    url: pm.variables.get(\"HOST\") + \"/api/auth/login\", ",
+							"    method: 'POST',",
+							"    header: 'Content-Type:application/json',",
+							"    body: {",
+							"        mode: 'raw',",
+							"        raw: JSON.stringify({ \"username\": pm.variables.get(\"username\") })",
+							"",
+							"    }",
+							"};",
+							"",
+							"pm.sendRequest(reqObject, (err, res) => {",
+							"    const access_token = res.json().access_token;  // your token",
+							"    console.log(`PRE-request script, access_token: ${access_token}`);",
+							"    pm.globals.set(\"ACCESS_TOKEN\", access_token );  // set variable with ACCESS_TOKEN ",
+							"});",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"czakix@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/auth/token",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "refresh-token",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Cookie",
+								"value": "refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImN6YWtpeEBnbWFpbC5jb20iLCJpYXQiOjE3MDI2Njg0NDksImV4cCI6MTcwMjc1NDg0OX0.e0z5aFeUyNn3rVdYWljxBgCRltV5AODd0oaOzhWIn4E; Path=/; Secure; HttpOnly; Expires=Sat, 16 Dec 2023 19:27:29 GMT;",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"czakix@gmail.com\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{HOST}}/api/auth/refresh-token",
+							"host": [
+								"{{HOST}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"refresh-token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://localhost:8000"
+		},
+		{
+			"key": "username",
+			"value": "czakix@gmail.com"
+		}
+	]
+}

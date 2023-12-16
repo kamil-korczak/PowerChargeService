@@ -1,0 +1,39 @@
+version: "3.8"
+
+services:
+
+  web:
+    image: powerchargeservice
+    build:
+      context: .
+      dockerfile: Dockerfile
+    # volumes:
+    #   - .:/app
+    restart: unless-stopped
+    environment:
+      DB_HOST: ${DB_HOST}
+      DB_PORT: ${DB_PORT}
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      APP_PORT: ${APP_PORT}
+      LOGGER_LEVEL: ${LOGGER_LEVEL}
+      ACCESS_SECRET_KEY: ${ACCESS_SECRET_KEY}
+      REFRESH_SECRET_KEY: ${REFRESH_SECRET_KEY}
+    ports:
+    - "${APP_PORT}:${APP_PORT}"
+    depends_on:
+    - postgres
+
+  postgres:
+    restart: always
+    image: postgres:latest
+    environment:
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_DB: ${DB_NAME}
+    ports:
+      - "${DB_PORT}:${DB_PORT}"
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./sql/init.sql:/docker-entrypoint-initdb.d/init.sql

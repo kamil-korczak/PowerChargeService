@@ -1,0 +1,16 @@
+# Logs
+logs
+*.log
+
+# Compiled nodejs
+build/
+
+# Dependency directories
+node_modules/
+
+# dotenv environment variable files
+.env
+
+.vscode/
+
+pgdata/
