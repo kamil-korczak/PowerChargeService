@@ -83,17 +83,17 @@ describe('middleware.auth', () => {
             req.header.mockReturnValue('Bearer validToken');
 
             (jwt.verify as jest.Mock).mockReturnValue({ username: user.username, at: 1, exp: 1 });
-            (token_cache.getCache as jest.Mock).mockImplementation(() => true )
-            
+            (token_cache.getCache as jest.Mock).mockImplementation(() => true)
+
             middleware_auth.authenticateToken(req, res, next);
             expect(req.header).toHaveBeenCalledWith('Authorization');
             expect(res.sendStatus).not.toHaveBeenCalled()
             expect(next).toHaveBeenCalled();
         });
-        
+
         test('should return 401 if Authorization header is missing', () => {
             req.header.mockReturnValue(undefined);
-            
+
             middleware_auth.authenticateToken(req, res, next);
             expect(req.header).toHaveBeenCalledWith('Authorization');
             expect(res.sendStatus).toHaveBeenCalledWith(401);
@@ -105,27 +105,27 @@ describe('middleware.auth', () => {
             mocked_jwt.verify.mockImplementation(() => {
                 throw new Error('Invalid Token')
             });
-            
+
             middleware_auth.authenticateToken(req, res, next);
-            
+
             expect(req.header).toHaveBeenCalledWith('Authorization');
             expect(res.status).toHaveBeenCalledWith(403);
             expect(res.json).toHaveBeenCalledWith({ error: 'Unauthorized' });
             expect(next).not.toHaveBeenCalled();
         });
-        
+
         test('should return 403 if token is not in the cache', () => {
             req.header.mockReturnValue('Bearer validToken');
             (jwt.verify as jest.Mock).mockReturnValue({ username: user.username, at: 1, exp: 1 });
-            (token_cache.getCache as jest.Mock).mockImplementation(() => undefined )
-            
+            (token_cache.getCache as jest.Mock).mockImplementation(() => undefined)
+
             middleware_auth.authenticateToken(req, res, next);
-            
+
             expect(req.header).toHaveBeenCalledWith('Authorization');
             expect(res.status).toHaveBeenCalledWith(403);
             expect(res.json).toHaveBeenCalledWith({ error: 'Invalid token.' });
             expect(next).not.toHaveBeenCalled();
         });
     });
-    
+
 });
