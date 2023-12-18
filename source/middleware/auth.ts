@@ -56,7 +56,7 @@ function authenticateToken(req: any, res: any, next: any) {
   const cached_token: any = token_cache.getCache(access_token)
   logger.debug(`cached_token: ${util.inspect(cached_token, { depth: null })}`);
   if (!cached_token) {
-    logger.debug('Invalid token')
+    logger.debug('Invalid token. Token not found in cache.')
     return res.status(403).json({ error: "Invalid token." });
   }
 
