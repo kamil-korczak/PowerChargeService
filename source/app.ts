@@ -57,3 +57,5 @@ app.use(routes);
 app.listen(config.APP_PORT, () => {
   logger.info(`Server listening on port ${config.APP_PORT}`);
 });
+
+export default app;
