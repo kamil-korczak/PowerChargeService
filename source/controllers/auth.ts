@@ -23,7 +23,7 @@ const login = async (req: Request, res: Response) => {
     const access_token = auth_middleware.generateAccessToken(user);
     const refresh_token = auth_middleware.generateRefreshToken(user.username);
     
-    token_cache.setCache(access_token, user)
+    token_cache.setCache(access_token)
 
     return res
       .cookie('refresh_token', refresh_token,

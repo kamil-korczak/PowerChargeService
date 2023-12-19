@@ -13,6 +13,9 @@ const user = { username: 'test_user' };
 
 
 describe('middleware.auth', () => {
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
 
     test('generateAccessToken should generate a valid access token', () => {
         const expected_token = 'mocked_refresh_token'
